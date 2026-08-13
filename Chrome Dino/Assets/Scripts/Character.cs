@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            // GameManager.Instance.GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 

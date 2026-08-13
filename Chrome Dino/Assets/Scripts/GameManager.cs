@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
     {
         gameSpeed += gameSpeedIncrease * Time.deltaTime;
     } 
+     public void GameOver()
+    {
+        gameSpeed = 0f;
+        enabled = false;
+
+    }
 
 
 }
