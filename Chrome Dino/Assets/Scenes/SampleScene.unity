@@ -169,11 +169,10 @@ Transform:
   m_GameObject: {fileID: 48140813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1659167516}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &48140817
@@ -880,7 +879,7 @@ Transform:
   m_GameObject: {fileID: 1288882749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1142,6 +1141,7 @@ GameObject:
   - component: {fileID: 1659167515}
   - component: {fileID: 1659167514}
   - component: {fileID: 1659167517}
+  - component: {fileID: 1659167518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1167,8 +1167,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.95
-  m_Radius: 0.44
+  m_Height: 0.6
+  m_Radius: 0.105
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1223,7 +1223,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3111472808912490266, guid: ee54f73d51cf2f84cb343d99b90ff6d6, type: 3}
+  m_Sprite: {fileID: 6399485478009923944, guid: 9e4112cb3482a064495b8179cf56ea71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1243,11 +1243,11 @@ Transform:
   m_GameObject: {fileID: 1659167513}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0.3, z: 0}
-  m_LocalScale: {x: 0.04, y: 1, z: 1}
+  m_LocalPosition: {x: -6, y: -0.02, z: 0}
+  m_LocalScale: {x: 2.5414999, y: 2.5415, z: 2.5415}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 48140816}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1659167517
 MonoBehaviour:
@@ -1263,6 +1263,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   jumpForce: 8
   gravity: 19.62
+--- !u!95 &1659167518
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659167513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76dbc46956093ff4db162fb92327daa3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1669979416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1721,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1872451579}
+  - {fileID: 1659167516}
   - {fileID: 48140816}
   - {fileID: 1380573408}
   - {fileID: 1843828059}
