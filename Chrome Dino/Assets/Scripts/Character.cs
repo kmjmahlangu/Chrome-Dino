@@ -36,12 +36,17 @@ public class Character : MonoBehaviour
         character.Move(direction * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Obstacle"))
     {
-        if (other.CompareTag("Obstacle"))
+        if (GameManager.Instance.UseShield())
         {
-            GameManager.Instance.GameOver();
+            return;
         }
+
+        GameManager.Instance.GameOver();
     }
+}
 
 }

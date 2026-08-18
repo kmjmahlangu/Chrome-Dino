@@ -867,7 +867,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   objects:
   - prefab: {fileID: 873568901068771930, guid: 95096a504ebc18344b951fc605d776eb, type: 3}
-    spawnChance: 0.5
+    spawnChance: 0.7
+  - prefab: {fileID: 1037213062418213530, guid: 20f0c188f64b31b4cb2c70d8581ad089, type: 3}
+    spawnChance: 0
+  - prefab: {fileID: 1037213062418213530, guid: 9fe6db65da028084e88244098712daa5, type: 3}
+    spawnChance: 0.3
   minSpawnRate: 1
   maxSpawnRate: 2
 --- !u!4 &1288882751
@@ -1248,7 +1252,7 @@ GameObject:
   - component: {fileID: 1659167518}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
