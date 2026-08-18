@@ -95,14 +95,15 @@ public bool HasShield { get; private set; }
     score += gameSpeed * scoreMultiplier * Time.deltaTime;
 
     if (scoreMultiplierTimer > 0f)
-    {
-        scoreMultiplierTimer -= Time.deltaTime;
+{
+    scoreMultiplierTimer -= Time.deltaTime;
 
-        if (scoreMultiplierTimer <= 0f)
-        {
-            scoreMultiplier = 1f;
-        }
+    if (scoreMultiplierTimer <= 0f)
+    {
+        scoreMultiplier = 1f;
+        player.HideDoubleScore();
     }
+}
 
     scoreText.text = Mathf.FloorToInt(score).ToString("D5");
 }
@@ -124,20 +125,22 @@ public bool HasShield { get; private set; }
     scoreMultiplier = 2f;
     scoreMultiplierTimer = duration;
 
-    Debug.Log("DOUBLE SCORE ACTIVATED!");
+    player.ShowDoubleScore();
 }
 
 public void ActivateShield()
 {
     HasShield = true;
+    player.ShowShield();
 }
-
 public bool UseShield()
 {
     if (!HasShield)
         return false;
 
     HasShield = false;
+    player.HideShield();
+
     return true;
 }
 }
