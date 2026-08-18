@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
     public float jumpForce = 8f;
     public float gravity = 9.81f * 2f;
 
+    [SerializeField] private GameObject shieldVisual;
+[SerializeField] private GameObject doubleScoreVisual;
+
     private void Awake()
     {
         character = GetComponent<CharacterController>();
@@ -36,12 +39,36 @@ public class Character : MonoBehaviour
         character.Move(direction * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Obstacle"))
     {
-        if (other.CompareTag("Obstacle"))
+        if (GameManager.Instance.UseShield())
         {
-            GameManager.Instance.GameOver();
+            return;
         }
+
+        GameManager.Instance.GameOver();
     }
+}
+public void ShowShield()
+{
+    shieldVisual.SetActive(true);
+}
+
+public void HideShield()
+{
+    shieldVisual.SetActive(false);
+}
+
+public void ShowDoubleScore()
+{
+    doubleScoreVisual.SetActive(true);
+}
+
+public void HideDoubleScore()
+{
+    doubleScoreVisual.SetActive(false);
+}
 
 }

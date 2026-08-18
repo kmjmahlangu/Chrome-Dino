@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     private float score;
     public float Score => score;
+    private float scoreMultiplier = 1f;
+private float scoreMultiplierTimer = 0f;
+
+public bool HasShield { get; private set; }
 
     private void Awake()
     {
@@ -47,24 +51,29 @@ public class GameManager : MonoBehaviour
     }
 
     public void NewGame()
-    {
-        Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
+{
+    Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
 
-        foreach (var obstacle in obstacles) {
-            Destroy(obstacle.gameObject);
-        }
-
-        score = 0f;
-        gameSpeed = initialGameSpeed;
-        enabled = true;
-
-        player.gameObject.SetActive(true);
-        spawner.gameObject.SetActive(true);
-        gameOverText.gameObject.SetActive(false);
-        retryButton.gameObject.SetActive(false);
-
-        UpdateHiscore();
+    foreach (var obstacle in obstacles) {
+        Destroy(obstacle.gameObject);
     }
+
+    score = 0f;
+    gameSpeed = initialGameSpeed;
+
+    scoreMultiplier = 1f;
+    scoreMultiplierTimer = 0f;
+    HasShield = false;
+
+    enabled = true;
+
+    player.gameObject.SetActive(true);
+    spawner.gameObject.SetActive(true);
+    gameOverText.gameObject.SetActive(false);
+    retryButton.gameObject.SetActive(false);
+
+    UpdateHiscore();
+}
 
     public void GameOver()
     {
@@ -80,11 +89,24 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
+{
+    gameSpeed += gameSpeedIncrease * Time.deltaTime;
+
+    score += gameSpeed * scoreMultiplier * Time.deltaTime;
+
+    if (scoreMultiplierTimer > 0f)
+{
+    scoreMultiplierTimer -= Time.deltaTime;
+
+    if (scoreMultiplierTimer <= 0f)
     {
-        gameSpeed += gameSpeedIncrease * Time.deltaTime;
-        score += gameSpeed * Time.deltaTime;
-        scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        scoreMultiplier = 1f;
+        player.HideDoubleScore();
     }
+}
+
+    scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+}
 
     private void UpdateHiscore()
     {
@@ -98,5 +120,28 @@ public class GameManager : MonoBehaviour
 
         hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
     }
+    public void ActivateDoubleScore(float duration)
+{
+    scoreMultiplier = 2f;
+    scoreMultiplierTimer = duration;
 
+    player.ShowDoubleScore();
 }
+
+public void ActivateShield()
+{
+    HasShield = true;
+    player.ShowShield();
+}
+public bool UseShield()
+{
+    if (!HasShield)
+        return false;
+
+    HasShield = false;
+    player.HideShield();
+
+    return true;
+}
+}
+
