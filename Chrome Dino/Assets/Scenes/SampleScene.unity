@@ -1130,11 +1130,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   objects:
   - prefab: {fileID: 873568901068771930, guid: 95096a504ebc18344b951fc605d776eb, type: 3}
-    spawnChance: 0.5
+    spawnChance: 0.9
   - prefab: {fileID: 1037213062418213530, guid: 20f0c188f64b31b4cb2c70d8581ad089, type: 3}
-    spawnChance: 0.2
+    spawnChance: 0.05
   - prefab: {fileID: 1037213062418213530, guid: 9fe6db65da028084e88244098712daa5, type: 3}
-    spawnChance: 0.3
+    spawnChance: 0.05
   minSpawnRate: 1
   maxSpawnRate: 2
 --- !u!4 &1288882751
@@ -1875,7 +1875,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: X2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1dd7e1c3cb9dffe49af949f53fca3923, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.75005674, b: 0.0056602955, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1853205484}
   m_maskType: 0
 --- !u!23 &1853205484
