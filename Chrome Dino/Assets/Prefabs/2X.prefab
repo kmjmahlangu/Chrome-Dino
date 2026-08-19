@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Booster
   boosterType: 0
-  duration: 8
+  duration: 3
 --- !u!65 &-5123367345874948984
 BoxCollider:
   m_ObjectHideFlags: 0
